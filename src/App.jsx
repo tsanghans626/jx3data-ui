@@ -1,15 +1,23 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ActiveCalendar } from "./components/active-calendar";
-
-const queryClient = new QueryClient();
+import { Routes, Route } from "react-router";
+import HomeLayout from "./layout/homeLayout";
+import Home from "./pages/Home";
+import ActiveCalendarPage from "./pages/ActiveCalendar";
 
 function App() {
+  const menus = [
+    {
+      label: "JX3API",
+      subMenus: [{ label: "活动日历", to: "/active-calendar" }],
+    },
+  ];
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools />
-      <ActiveCalendar server={"长安城"} />
-    </QueryClientProvider>
+    <Routes>
+      <Route element={<HomeLayout menus={menus} />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/active-calendar" element={<ActiveCalendarPage />} />
+      </Route>
+    </Routes>
   );
 }
 
