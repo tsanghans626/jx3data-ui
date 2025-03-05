@@ -7,7 +7,9 @@ export default function HomeLayout({ menus }) {
       <header className="h-16">
         <div className="navbar bg-base-100 shadow-sm">
           <div className="flex-1">
-            <Link to="/">JX3UI</Link>
+            <Link className="btn btn-ghost text-xl" to="/">
+              JX3UI
+            </Link>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
