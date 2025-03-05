@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router";
-import HomeLayout from "./layout/homeLayout";
+import HomeLayout from "./layout/HomeLayout";
 import Home from "./pages/Home";
 import ActiveCalendarPage from "./pages/ActiveCalendar";
 
@@ -7,7 +7,10 @@ function App() {
   const menus = [
     {
       label: "JX3API",
-      subMenus: [{ label: "活动日历", to: "/active-calendar" }],
+      subMenus: [
+        { label: "活动日历", to: "/active-calendar" },
+        { label: "活动月历", to: "/active-list-calendar" },
+      ],
     },
   ];
 

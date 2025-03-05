@@ -121,7 +121,7 @@ export function ActiveCalendar({ server, num = 0 }) {
           <Item title={"福缘"} contentArr={data.luck} isHot={true} />
           <Item title={"门派事件"} contentArr={[data.school]} />
           <Item title={"驰援事件"} contentArr={[data.rescue]} />
-          <Item title={"美人图"} contentArr={[data.draw]} />
+          {data.draw && <Item title={"美人图"} contentArr={[data.draw]} />}
           {data.leader && (
             <Item title={"世界首领"} content={data.leader} isHot={true} />
           )}
