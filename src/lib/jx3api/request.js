@@ -1,6 +1,6 @@
 import { APIError } from "./error";
 
-export async function request(endpoint, data) {
+export async function request({ endpoint, data, token = null, ticket = null }) {
   console.debug(
     `JX3API请求中: endpoint=${endpoint}, data=${JSON.stringify(data)}`
   );

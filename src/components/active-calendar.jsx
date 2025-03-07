@@ -76,12 +76,7 @@ function Skeleton({ isFetching, error }) {
   );
 }
 
-export function ActiveCalendar({ server, num = 0 }) {
-  const { isPending, error, data, isFetching } = useActiveCalendar({
-    server,
-    num,
-  });
-
+export function ActiveCalendar({ isPending, error, data, isFetching }) {
   if (isPending) return <Skeleton isFetching={isFetching} error={error} />;
 
   if (error) return <Skeleton isFetching={isFetching} error={error} />;
@@ -93,6 +88,54 @@ export function ActiveCalendar({ server, num = 0 }) {
         {isFetching && (
           <span className="loading loading-spinner loading-xs"></span>
         )}
+      </li>
+      <li className="list-row items-center">
+        <div className="badge badge-soft badge-primary">PVE</div>
+        <div className="flex flex-col gap-2">
+          <Item title={"日常秘境"} contentArr={[data.war]} isHot={true} />
+          <Item
+            title={"武林通鉴·秘境任务"}
+            contentArr={data.team?.[1].split(";")}
+          />
+          <Item
+            title={"武林通鉴·团队秘境"}
+            contentArr={data.team?.[2].split(";")}
+          />
+        </div>
+      </li>
+      <li className="list-row items-center">
+        <div className="badge badge-soft badge-secondary">PVP</div>
+        <div className="flex flex-col gap-2">
+          <Item title={"战场"} contentArr={[data.battle]} isHot={true} />
+          <Item title={"挖矿"} contentArr={[data.orecar]} />
+        </div>
+      </li>
+      <li className="list-row items-center">
+        <div className="badge badge-soft badge-accent">PVX</div>
+        <div className="flex flex-col gap-2">
+          <Item title={"福缘"} contentArr={data.luck} isHot={true} />
+          <Item title={"门派事件"} contentArr={[data.school]} />
+          <Item title={"驰援事件"} contentArr={[data.rescue]} />
+          {data.draw && <Item title={"美人图"} contentArr={[data.draw]} />}
+          {data.leader && (
+            <Item title={"世界首领"} content={data.leader} isHot={true} />
+          )}
+          <Item title={"家园声望·加倍道具"} contentArr={data.card} />
+          <Item
+            title={"武林通鉴·公共任务"}
+            contentArr={data.team?.[0].split(";")}
+          />
+        </div>
+      </li>
+    </ul>
+  );
+}
+
+export function ActiveCalendarStatic({ data }) {
+  return (
+    <ul className="list bg-base-100 rounded-box shadow-md">
+      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide">
+        <span>活动日历</span>
       </li>
       <li className="list-row items-center">
         <div className="badge badge-soft badge-primary">PVE</div>
