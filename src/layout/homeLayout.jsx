@@ -13,7 +13,7 @@ export default function HomeLayout({ menus }) {
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
-              <Link to="https://www.baidu.com">
+              <Link to={import.meta.env.VITE_GITHUB_URL}>
                 <FaGithub className="text-2xl" />
               </Link>
             </ul>

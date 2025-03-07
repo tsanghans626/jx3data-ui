@@ -6,7 +6,10 @@ export function useActiveListCalendar({ num }) {
   return useQuery({
     queryKey: [ACTIVE_LIST_CALENDAR_URL, { num }],
     queryFn: async () => {
-      return await request(ACTIVE_LIST_CALENDAR_URL, { num });
+      return await request({
+        endpoint: ACTIVE_LIST_CALENDAR_URL,
+        data: { num },
+      });
     },
   });
 }

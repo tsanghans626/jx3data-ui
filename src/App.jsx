@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router";
 import HomeLayout from "./layout/HomeLayout";
 import Home from "./pages/Home";
 import ActiveCalendarPage from "./pages/ActiveCalendar";
+import ActiveListCalendarPage from "./pages/ActiveListCalendar";
 
 function App() {
   const menus = [
@@ -19,6 +20,10 @@ function App() {
       <Route element={<HomeLayout menus={menus} />}>
         <Route path="/" element={<Home />} />
         <Route path="/active-calendar" element={<ActiveCalendarPage />} />
+        <Route
+          path="/active-list-calendar"
+          element={<ActiveListCalendarPage />}
+        />
       </Route>
     </Routes>
   );

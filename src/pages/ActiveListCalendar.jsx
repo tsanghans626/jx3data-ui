@@ -1,18 +1,19 @@
-import { useRef, useState } from "react";
-import { ActiveCalendar } from "../components/active-calendar";
-import { useActiveCalendar } from "../hooks/useActiveCalendar";
+import { useState } from "react";
+import ActiveListCalendar from "../components/active-list-calendar";
+import { useActiveListCalendar } from "../hooks/useActiveListCalendar";
 
-export default function ActiveCalendarPage() {
-  const initialParams = { server: "", num: 0 };
+export default function ActiveListCalendarPage() {
+  const initialParams = { num: 15 };
 
   const [params, setParams] = useState(initialParams);
 
-  const { isPending, error, data, isFetching } = useActiveCalendar(params);
+  const { isPending, error, data, isFetching } = useActiveListCalendar(params);
 
   function handleSubmit(e) {
     e.preventDefault();
     const data = new FormData(e.target);
     const formValues = Object.fromEntries(data.entries());
+
     setParams(formValues);
   }
 
@@ -29,14 +30,6 @@ export default function ActiveCalendarPage() {
         >
           <fieldset className="fieldset">
             <input
-              name="server"
-              type="text"
-              className="input input-warning"
-              placeholder="服务器（可选）"
-            />
-          </fieldset>
-          <fieldset className="fieldset">
-            <input
               name="num"
               type="number"
               className="input input-warning"
@@ -48,7 +41,7 @@ export default function ActiveCalendarPage() {
       </div>
       <div className="flex justify-center items-center py-4 w-full">
         <div className="w-1/2">
-          <ActiveCalendar
+          <ActiveListCalendar
             isPending={isPending}
             error={error}
             data={data}
