@@ -15,7 +15,7 @@ function Skeleton({ isFetching, error }) {
       <li>
         <ul className="timeline timeline-vertical py-4">
           <li>
-            <div className="timeline-start w-48 skeleton h-8"></div>
+            <div className="timeline-start w-36 skeleton h-14"></div>
             <div className="timeline-middle">
               <LuSwords />
             </div>
@@ -26,12 +26,12 @@ function Skeleton({ isFetching, error }) {
             <div className="timeline-middle">
               <LuSwords />
             </div>
-            <div className="timeline-end w-48 skeleton h-8"></div>
+            <div className="timeline-end w-36 skeleton h-14"></div>
             <hr />
           </li>
           <li>
             <hr />
-            <div className="timeline-start w-48 skeleton h-8"></div>
+            <div className="timeline-start w-36 skeleton h-14"></div>
             <div className="timeline-middle">
               <LuSwords />
             </div>
@@ -42,12 +42,12 @@ function Skeleton({ isFetching, error }) {
             <div className="timeline-middle">
               <LuSwords />
             </div>
-            <div className="timeline-end w-48 skeleton h-8"></div>
+            <div className="timeline-end w-36 skeleton h-14"></div>
             <hr />
           </li>
           <li>
             <hr />
-            <div className="timeline-start w-48 skeleton h-8"></div>
+            <div className="timeline-start w-36 skeleton h-14"></div>
             <div className="timeline-middle">
               <LuSwords />
             </div>
@@ -58,12 +58,12 @@ function Skeleton({ isFetching, error }) {
             <div className="timeline-middle">
               <LuSwords />
             </div>
-            <div className="timeline-end  w-48 skeleton h-8"></div>
+            <div className="timeline-end  w-36 skeleton h-14"></div>
             <hr />
           </li>
           <li>
             <hr />
-            <div className="timeline-start  w-48 skeleton h-8"></div>
+            <div className="timeline-start  w-36 skeleton h-14"></div>
             <div className="timeline-middle">
               <LuSwords />
             </div>
@@ -74,12 +74,12 @@ function Skeleton({ isFetching, error }) {
             <div className="timeline-middle">
               <LuSwords />
             </div>
-            <div className="timeline-end  w-48 skeleton h-8"></div>
+            <div className="timeline-end  w-36 skeleton h-14"></div>
             <hr />
           </li>
           <li>
             <hr />
-            <div className="timeline-start w-48 skeleton h-8"></div>
+            <div className="timeline-start w-36 skeleton h-14"></div>
             <div className="timeline-middle">
               <LuSwords />
             </div>
@@ -90,7 +90,7 @@ function Skeleton({ isFetching, error }) {
             <div className="timeline-middle">
               <LuSwords />
             </div>
-            <div className="timeline-end  w-48 skeleton h-8"></div>
+            <div className="timeline-end  w-36 skeleton h-14"></div>
           </li>
         </ul>
       </li>
@@ -112,9 +112,9 @@ export default function ActiveCelebs({ isPending, error, data, isFetching }) {
         )}
       </li>
       <li>
-        <ul className="timeline timeline-vertical py-4">
+        <ul className="timeline timeline-vertical p-4">
           {data.map((item, index) => {
-            const label = `[${item.time}] ${item.map} ${item.site} ${item.stage}`;
+            const label = `[${item.time}] ${item.map} ${item.site}`;
             const isFirst = index === 0;
             const isLast = index === data.length - 1;
             const isEven = index % 2 === 0;
@@ -122,16 +122,18 @@ export default function ActiveCelebs({ isPending, error, data, isFetching }) {
               <li key={item.time}>
                 {!isFirst && <hr />}
                 {isEven && (
-                  <div className="timeline-start timeline-box max-w-64 h-8">
-                    {label}
+                  <div className="flex flex-col justify-between timeline-start timeline-box max-w-64 min-h-14">
+                    <div className="font-bold">{label}</div>
+                    <div className="text-right">{item.stage}</div>
                   </div>
                 )}
                 <div className="timeline-middle">
                   <LuSwords />
                 </div>
                 {!isEven && (
-                  <div className="timeline-end timeline-box max-w-64 h-8">
-                    {label}
+                  <div className="flex flex-col justify-between timeline-end timeline-box max-w-64 min-h-14">
+                    <div className="font-bold">{label}</div>
+                    <div className="text-left">{item.stage}</div>
                   </div>
                 )}
                 {!isLast && <hr />}
