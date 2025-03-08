@@ -37,7 +37,7 @@ function Item({ title, contentArr, isHot = false }) {
 function Skeleton({ isFetching, error }) {
   return (
     <ul className="list bg-base-100 rounded-box shadow-md">
-      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide">
+      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide h-12">
         <span>活动日历</span>
         {isFetching && (
           <span className="loading loading-spinner loading-xs"></span>
@@ -83,7 +83,7 @@ export function ActiveCalendar({ isPending, error, data, isFetching }) {
 
   return (
     <ul className="list bg-base-100 rounded-box shadow-md">
-      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide">
+      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide h-12">
         <span>活动日历</span>
         {isFetching && (
           <span className="loading loading-spinner loading-xs"></span>
@@ -134,7 +134,7 @@ export function ActiveCalendar({ isPending, error, data, isFetching }) {
 export function ActiveCalendarStatic({ data }) {
   return (
     <ul className="list bg-base-100 rounded-box shadow-md">
-      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide">
+      <li className="inline-flex items-center gap-1 p-4 pb-2 opacity-60 tracking-wide h-12">
         <span>活动日历</span>
       </li>
       <li className="list-row items-center">
